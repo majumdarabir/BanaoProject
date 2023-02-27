@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <form action="" , method="POST">
+                {% csrf_token %}
+                {% if error %}
+                <div class="invalid">
+                    <p>invalid username or password</p>
+                </div>
+                {% endif %}
+                <h3>User Login</h3>
+                <br>
+                <label for="uname">Username</label><br><br>
+                <input type="text" placeholder="Enter Username" name="uname" required><br><br>
+                <label for="password">Password</label><br><br>
+                <input type="password" placeholder="Enter Password" name="password" required><br><br>
+             
+                <button id="btn" type="submit">submit</button><br>
+                <br>
+                <div>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp; Need an account?&nbsp;<a style="text-decoration: none;" href="{% url 'signup-page' %}">Sign up</a></p>
+                </div>
+
+                
+            </form>
+            
+        </div>
+        
+    </div>
+</body>
+
+</html>

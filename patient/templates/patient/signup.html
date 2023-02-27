@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <form action="" , method="POST">
+                {% csrf_token %}
+                {% if user_error or error %}
+                <div class="invalid">
+                    {% if user_error %}
+                            <p>User Already exists</p>
+                    {% elif error %}
+                            <p>password did't match</p>
+                    {% endif %}
+                </div>
+                {% endif %}
+                    
+                <label for="fname">First Name</label><br><br>
+                <input type="text" placeholder="Enter First Name" name="fname" required><br><br>
+                <label for="lname">Last Name</label><br><br>
+                <input type="text" placeholder="Enter Last Name" name="lname" required><br><br>
+                Profile Picture <br><br>
+                <input type="file" name="profilepic"><br><br>
+                <label for="uname">Username</label><br><br>
+                <input type="text" placeholder="Enter Username" name="uname" required><br><br>
+                <label for="email">Email Id</label><br><br>
+                <input type="email" placeholder="Enter Email Id" name="email" required><br><br>
+                <label for="password">Password</label><br><br>
+                <input id="password_" type="password" placeholder="Enter Password" name="password" required><br><br>
+                <label for="rpassword">Confirm Password</label><br><br>
+                <input id="rpassword_" type="password" placeholder="Reenter Password" name="rpassword" required><br><br>
+                Address: <br>
+                <textarea required> </textarea><br><br>
+                <!-- <input type="text" name="input_name"> -->
+                <!-- <input type="radio" value="doctor" name="input_name">Doctor 
+                <input type="radio" value="patient" name="input_name">Patient -->
+                <label for="user">select user</label>
+
+                <select name="user" id="user">
+                    <option value="doctor">doctor</option>
+                    <option value="patient">patient</option>
+                </select>
+                <button id="btn" type="submit">submit</button>
+                <p><a href="{% url 'login-page' %}" style="color: black; text-decoration: none; font-style: italic;float: right;"><b>Already have an account</b></a></p>
+            </form>
+
+           
+        </div>
+        
+    </div>
+
+</body>
+
+</html>
